@@ -19,6 +19,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    public void ResetPlayerPosition()
+    {
+        transform.position = new Vector3(0, transform.localScale.y /2, 0);
+    }
+
     private void FixedUpdate()
     {
         //The direction the player is moving in is set to the input values for the horizontal and vertical axis

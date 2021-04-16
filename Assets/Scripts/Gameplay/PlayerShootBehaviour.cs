@@ -9,6 +9,8 @@ public class PlayerShootBehaviour : MonoBehaviour
     [SerializeField]
     private float _shotSpeed;
 
+
+
     // Update is called once per frame
     void Update()
     {

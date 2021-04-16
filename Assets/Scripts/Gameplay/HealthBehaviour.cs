@@ -5,7 +5,9 @@ using UnityEngine;
 public class HealthBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private float _health; 
+    private float _health;
+    [SerializeField]
+    private bool _destroyOnDeath = true;
 
     public float Health
     {
@@ -13,6 +15,11 @@ public class HealthBehaviour : MonoBehaviour
         {
             return _health;
         }
+    }
+
+    public void ResetHealth()
+    {
+        _health = 10;
     }
 
     /// <summary>
@@ -31,7 +38,9 @@ public class HealthBehaviour : MonoBehaviour
     void Update()
     {
         //If the object health is lower or equal to 0, destroy the object
-        if (_health <= 0)
+        if (_health <= 0 && _destroyOnDeath)
             Destroy(gameObject);
+        else if (_health <= 0)
+            gameObject.SetActive(false);
     }
 }
